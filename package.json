@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "workspaces": [
+    "starters/*",
+    "themes/*"
+  ],
+  "scripts": {
+    "develop:core": "yarn workspace gatsby-starter-hypercore develop",
+    "build:core": "yarn workspace gatsby-starter-hypercore build",
+    "serve:core": "yarn workspace gatsby-starter-hypercore serve",
+    "clean:core": "yarn workspace gatsby-starter-hypercore clean",
+    "test:core": "start-server-and-test develop:core http://localhost:8000 cy:open",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  }
+}

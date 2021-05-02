@@ -1,0 +1,53 @@
+{
+  "name": "gatsby-theme-hypercore",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Core theme for Gatsby 3 sites",
+  "author": "lane",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "gatsby-plugin-manifest": "^3.2.0",
+    "gatsby-plugin-mdx": "^2.2.0",
+    "gatsby-plugin-netlify-cms": "^5.2.0",
+    "gatsby-plugin-react-helmet": "^4.2.0",
+    "gatsby-plugin-sharp": "^3.4.0",
+    "gatsby-plugin-sitemap": "^3.2.0",
+    "gatsby-remark-copy-linked-files": "^4.1.0",
+    "gatsby-remark-external-links": "^0.0.4",
+    "gatsby-remark-images": "^5.1.0",
+    "gatsby-remark-relative-images": "^2.0.2",
+    "gatsby-remark-smartypants": "^4.1.0",
+    "gatsby-source-filesystem": "^3.2.0",
+    "gatsby-theme-material-ui": "^2.0.1",
+    "react-helmet": "^6.1.0",
+    "remark-slug": "^6.0.0"
+  },
+  "peerDependencies": {
+    "gatsby": "^3.2.1",
+    "react": "^16.13.1 || ^17.0.1",
+    "react-dom": "^16.13.1 || ^17.0.1"
+  },
+  "resolutions": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie 11",
+    "not chrome < 51",
+    "not safari < 10"
+  ]
+}
