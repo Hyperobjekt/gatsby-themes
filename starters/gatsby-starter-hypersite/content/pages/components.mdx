@@ -2,16 +2,133 @@
 publish: true
 title: Components
 path: /components
+seo:
+  title: Components
+  description: Components available within the Hypersite theme
 ---
+
+<Block bgcolor="grey.100">
+
+## Base Components
+
+This gatsby theme uses a base set of material-ui components for standard HTML elements like:
+
+- Headings
+- Body text
+- Lists
+- Buttons
+- Links
+- Tables
+
+You do not need to write any custom code to utilize these components. Write markdown and HTML as usual, and the material-ui components will automatically be swapped in.
+
+All base components can be styled using your `theme.js` file.
+
+</Block>
+
+<Block style={{paddingBottom: 0}}>
+
+## Extra Components
+
+The following are extra components provided by this theme that you can use in your `.mdx` files.
+
+</Block>
 
 <Block>
 
-## Grid
+### Box
 
-## Container
+The Box component uses the [material-ui Box component](https://material-ui.com/components/box/), and can be used to layout and organize content. Boxes can take advantage of style props to set colors, margins, and padding based on the current site `theme.js`.
 
-## Block
+<Box display="flex">
+  <Box
+    bgcolor="primary.main"
+    color="primary.contrastText"
+    p={3}
+    mr={3}
+    maxWidth={320}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit
+    malesuada magna eu aliquam. Etiam sit amet elit lectus. Maecenas eu odio ut
+    dui iaculis fermentum. Integer sit amet urna vel ante sodales interdum non
+    eget elit.
+  </Box>
+  <Box
+    bgcolor="secondary.main"
+    color="secondary.contrastText"
+    p={3}
+    mr={3}
+    maxWidth={320}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit
+    malesuada magna eu aliquam. Etiam sit amet elit lectus. Maecenas eu odio ut
+    dui iaculis fermentum. Integer sit amet urna vel ante sodales interdum non
+    eget elit.
+  </Box>
+  <Box bgcolor="grey.200" color="grey.700" p={3} maxWidth={320}>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit
+    malesuada magna eu aliquam. Etiam sit amet elit lectus. Maecenas eu odio ut
+    dui iaculis fermentum. Integer sit amet urna vel ante sodales interdum non
+    eget elit.
+  </Box>
+</Box>
 
-## Hero
+</Block>
+
+<Block bgcolor="grey.100">
+
+### Block
+
+Blocks are used to create sections within a page that follow consistent margins, padding, and content widths used throughout the site. The text you are currently reading is inside of a `<Block />` element.
+
+</Block>
+
+<Hero bgcolor="primary.dark" align="center">
+
+### Hero
+
+<Box maxWidth={520} fontsize={18} mb={3}>
+  Heros are callout sections usually located at the top of the page. See the
+  storybook for available props and configuration.
+</Box>
+
+<button
+  color="secondary"
+  variant="contained"
+  href="https://hyperobjekt.github.io/core/?path=/docs/website-hero--base"
+>
+  View the Hero Storybook Docs
+</button>
+
+</Hero>
+
+<Block bgcolor="grey.100">
+
+### Grid
+
+Grids are created using the [material-ui grid component](https://material-ui.com/components/grid/).
+
+<Grid container spacing={3}>
+  <Grid xs={12} sm={6} md={3} item>
+    <Box p={3} bgcolor="grey.200">
+      Grid (sm=6, md=3)
+    </Box>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} item>
+    <Box p={3} bgcolor="grey.200">
+      Grid (sm=6, md=3)
+    </Box>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} item>
+    <Box p={3} bgcolor="grey.200">
+      Grid (sm=6, md=3)
+    </Box>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} item>
+    <Box p={3} bgcolor="grey.200">
+      Grid (sm=6, md=3)
+    </Box>
+  </Grid>
+</Grid>
 
 </Block>

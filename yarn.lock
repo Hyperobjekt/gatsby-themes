@@ -1385,10 +1385,10 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
-"@hyperobjekt/material-ui-website@1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@hyperobjekt/material-ui-website/-/material-ui-website-1.0.6.tgz#db6bdf338bc0952226e7dd03f064e9e0e858fd9b"
-  integrity sha512-WeGmkW8YIfavYuT1XOW82paEL88PbU7ASFPB0uraFn2Z5s6WaqcljONgBRzwFx7GYyTbXZlrzWFzvuUrutz7LA==
+"@hyperobjekt/material-ui-website@1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@hyperobjekt/material-ui-website/-/material-ui-website-1.0.9.tgz#e9b902e1cf8059515b6e1c14e905ca7c94d95240"
+  integrity sha512-6A5b5HimFSGARYwxHO5XxcWnEL7j19tUFdbhNQQqjvN1FsmjRfJyOJU/R3d5frMdvK6rnhCUicbP0qUIpwOYLA==
   dependencies:
     "@material-ui/core" "^4.11.3"
     "@material-ui/icons" "^4.11.2"

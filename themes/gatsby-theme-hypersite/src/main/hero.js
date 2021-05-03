@@ -1,10 +1,3 @@
-import React from "react"
-import PropTypes from "prop-types"
-
-const Hero = (props) => {
-  return <div {...props} />
-}
-
-Hero.propTypes = {}
+import { Hero } from "@hyperobjekt/material-ui-website"
 
 export default Hero

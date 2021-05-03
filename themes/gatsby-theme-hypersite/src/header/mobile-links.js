@@ -13,6 +13,16 @@ const MobileLinks = withStyles((theme) => ({
     padding: theme.spacing(2, 3),
     width: "100%",
     flex: 1,
+    color: theme.palette.primary.main,
+    textDecoration: "none",
+  },
+  linkActive: {
+    background: theme.palette.action.selected,
+  },
+  listItem: {
+    "&:hover": {
+      background: theme.palette.action.hover,
+    },
   },
 }))(Navigation)
 

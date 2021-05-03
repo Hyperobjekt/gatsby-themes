@@ -11,6 +11,7 @@ const Layout = ({ children, pageContext }) => {
   const {
     frontmatter: { seo },
   } = pageContext
+  console.log(seo, pageContext)
   return (
     <Page>
       <Seo {...seo} />

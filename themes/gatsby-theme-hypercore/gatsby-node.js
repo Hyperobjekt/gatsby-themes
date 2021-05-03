@@ -53,15 +53,18 @@ exports.createSchemaCustomization = ({ actions }) => {
   const frontmatterTypeDefs = `
     type MdxFrontmatter implements Node {
       publish: Boolean
+      path: String
       alias: String
-      image: String
+      lang: String
+      template: String
+      seo: SeoFrontmatter
+    }
+    type SeoFrontmatter {
       title: String
       description: String
-      keywords: [String]
-      lang: String
+      keywords: String
+      image: String
       isBlogPost: Boolean
-      template: String
-      path: String
     }
   `
   createTypes(subMenuTypeDefs)
@@ -106,16 +109,18 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
         nodes {
           id
           frontmatter {
-            alias
-            path
-            description
-            image
-            isBlogPost
-            keywords
-            lang
             publish
+            path
+            alias
+            lang
             template
-            title
+            seo {
+              title
+              description
+              keywords
+              image
+              isBlogPost
+            }
           }
           fileAbsolutePath
         }
