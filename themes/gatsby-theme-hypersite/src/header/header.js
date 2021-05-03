@@ -15,10 +15,11 @@ const ContentContainer = styled(Container)({
   justifyContent: "space-between",
 })
 
-const Header = (props) => {
+const Header = ({ children, ...props }) => {
   const siteMetadata = useSiteMetadata()
   return (
     <BaseHeader sticky stickyOffset={0} {...props}>
+      {children}
       <ContentContainer>
         <Logo />
         <DesktopNavigation

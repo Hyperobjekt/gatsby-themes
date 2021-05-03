@@ -1,6 +1,6 @@
 {
   "name": "gatsby-starter-hypercore",
-  "description": "Gatsby Starter for Hyperobjekt",
+  "description": "Core starter for Hyperobjekt Gatsby Sites",
   "version": "1.0.0",
   "author": "Lane Olson <laneolson@gmail.com>",
   "dependencies": {

@@ -11,12 +11,12 @@ const Layout = ({ children, pageContext }) => {
   const {
     frontmatter: { seo },
   } = pageContext
-  console.log(seo, pageContext)
   return (
     <Page>
       <Seo {...seo} />
-      <SkipNavLink />
-      <Header />
+      <Header>
+        <SkipNavLink />
+      </Header>
       <Main>
         <SkipNavContent />
         {children}
