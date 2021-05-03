@@ -5,7 +5,7 @@ import Container from "../container"
 import DesktopNavigation from "./desktop-navigation"
 import MobileNavigation from "./mobile-navigation"
 import Logo from "../logo"
-import { Link } from "gatsby-material-ui-components"
+import { GatsbyLink } from "gatsby-material-ui-components"
 import { useSiteMetadata } from "gatsby-theme-hypercore"
 
 const ContentContainer = styled(Container)({
@@ -22,10 +22,11 @@ const Header = (props) => {
       <ContentContainer>
         <Logo />
         <DesktopNavigation
-          LinkComponent={Link}
+          LinkComponent={GatsbyLink}
+          isGatsbyLink={true}
           links={siteMetadata.menuLinks}
         />
-        <MobileNavigation links={siteMetadata.menuLinks} />
+        <MobileNavigation buttonLabel="Menu" links={siteMetadata.menuLinks} />
       </ContentContainer>
     </BaseHeader>
   )

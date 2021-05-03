@@ -12,4 +12,11 @@ export default withStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
   },
+  link: {
+    color: theme.palette.primary.contrastText,
+    textDecoration: "none",
+    "&:hover, &:focus": {
+      textDecoration: "underline",
+    },
+  },
 }))(Navigation)

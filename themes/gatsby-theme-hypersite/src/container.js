@@ -1,3 +1,5 @@
+import React from "react"
+import clsx from "clsx"
 import { withStyles, Box } from "@material-ui/core"
 
 const styles = (theme) => ({
@@ -25,9 +27,9 @@ const styles = (theme) => ({
 
 export default withStyles(styles, {
   name: "HypContainer",
-})(({ classes, ...props }) => (
+})(({ classes, className, ...props }) => (
   <Box
-    className={classes.root}
+    className={clsx(classes.root, className)}
     display="flex"
     flexDirection="column"
     {...props}

@@ -28,20 +28,6 @@ exports.createSchemaCustomization = ({ actions }) => {
     },
   })
 
-  createFieldExtension({
-    name: `defaultAllLocation`,
-    extend() {
-      return {
-        resolve(source, args, context, info) {
-          if (source[info.fieldName] == null) {
-            return "all"
-          }
-          return source[info.fieldName]
-        },
-      }
-    },
-  })
-
   // Type definition for the submenu to ensure there is always a submenu array to query
   const subMenuTypeDefs = `
     type Site implements Node @infer {
@@ -49,12 +35,12 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type SiteMetadata {
       menuLinks: [MenuLinks]
+      logo: String
+      icon: String
     }
     type MenuLinks {
       name: String!
       link: String!
-      type: String!
-      location: String! @defaultAllLocation
       subMenu: [SubMenu] @defaultSubMenu
     }
     type SubMenu {

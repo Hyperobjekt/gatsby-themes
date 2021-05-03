@@ -1,0 +1,41 @@
+{
+  "title": "Hypersite",
+  "description": "Speed up your GatsbyJS development workflow. Designed as a set of opinionated and advanced themes and starters using MDX and Material UI. Incorporates gatsby-theme-hyperobjekt-core.",
+  "keywords": ["gatsby", "theme", "react"],
+  "author": "Lane Olson",
+  "copyright": "Copyright Hyperobjekt © 2021",
+  "siteUrl": "https://gatsby-starter-hypersite.netlify.app",
+  "image": "/image/social.jpg",
+  "menuLinks": [
+    {
+      "name": "Home",
+      "link": "/"
+    },
+    {
+      "name": "Components",
+      "link": "/components"
+    },
+    {
+      "name": "Styles",
+      "link": "/styles"
+    },
+    {
+      "name": "Guide",
+      "link": "/guide"
+    }
+  ],
+  "social": [
+    {
+      "name": "Email",
+      "value": "hyperobjekt@hyperobjekt.com"
+    },
+    {
+      "name": "Twitter",
+      "value": "hyperobjekt"
+    },
+    {
+      "name": "Github",
+      "value": "Hyperobjekt"
+    }
+  ]
+}

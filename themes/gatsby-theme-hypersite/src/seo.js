@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet"
 import PropTypes from "prop-types"
 import { useSiteMetadata } from "gatsby-theme-hypercore"
 import * as _pick from "lodash.pick"
+
 export const SEO_KEYS = ["title", "description", "keywords", "image"]
 
 export function Seo({

@@ -9,6 +9,10 @@
     "build:core": "yarn workspace gatsby-starter-hypercore build",
     "serve:core": "yarn workspace gatsby-starter-hypercore serve",
     "clean:core": "yarn workspace gatsby-starter-hypercore clean",
+    "develop:site": "yarn workspace gatsby-starter-hypersite develop",
+    "build:site": "yarn workspace gatsby-starter-hypersite build",
+    "serve:site": "yarn workspace gatsby-starter-hypersite serve",
+    "clean:site": "yarn workspace gatsby-starter-hypersite clean",
     "test:core": "start-server-and-test develop:core http://localhost:8000 cy:open",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
