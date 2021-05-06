@@ -13,7 +13,6 @@ export default function PagesTemplate(props) {
     ...(frontmatter.seo ? frontmatter.seo : {}),
     image: image ? props.location.origin + image : undefined,
   }
-  console.log("page template props", props)
   return (
     <Layout seo={seo} {...props}>
       <MDXRenderer localImages={frontmatter?.embeddedImages}>
