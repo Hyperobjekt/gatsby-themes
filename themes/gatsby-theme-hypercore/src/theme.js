@@ -1,5 +1,5 @@
-import { createMuiTheme } from "@material-ui/core/styles";
-import { deepmerge } from "@material-ui/utils";
+import { createMuiTheme } from "@material-ui/core/styles"
+import { deepmerge } from "@material-ui/utils"
 
 export const COLORS = {
   primary: "#EA4A2E",
@@ -11,7 +11,7 @@ export const COLORS = {
   altBackground: "#FAFAF5",
   darkBackground: "#181817",
   footerBackground: "#232321",
-};
+}
 
 export const FONTS = {
   KNOCKOUT: {
@@ -54,10 +54,10 @@ export const FONTS = {
       fontWeight: 400,
     },
   },
-};
+}
 
 /** Spacing function for margins / padding */
-export const spacing = (factor) => `${0.5 * factor}rem`;
+export const spacing = (factor) => `${0.5 * factor}rem`
 
 /** Create theme */
 let theme = createMuiTheme({
@@ -86,7 +86,7 @@ let theme = createMuiTheme({
   typography: {
     ...FONTS.MAPLE["Regular"],
   },
-});
+})
 
 const overrides = {
   /** Site wide global style overrides */
@@ -148,6 +148,6 @@ const overrides = {
       backgroundColor: "#eee",
     },
   },
-};
+}
 
-export default deepmerge(theme, { overrides });
+export default deepmerge(theme, { overrides })

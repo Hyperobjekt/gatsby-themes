@@ -18,6 +18,9 @@ let theme = createMuiTheme({
           fontSize: 24,
           textDecoration: "none",
         },
+        "[class*='Hero-content'] > .MuiTypography-root:first-child": {
+          textShadow: `0 1px 4px #000`,
+        },
       },
     },
   },

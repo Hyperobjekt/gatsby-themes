@@ -52,6 +52,7 @@ module.exports = (themeOptions) => {
       copyright: "Website copyright notice " + new Date().getFullYear(),
     },
     plugins: [
+      `gatsby-remark-images`,
       "gatsby-plugin-react-helmet",
       "gatsby-plugin-sitemap",
       {
@@ -76,6 +77,18 @@ module.exports = (themeOptions) => {
         resolve: "gatsby-theme-material-ui",
         options: options.materialOptions,
       },
+      `gatsby-plugin-image`,
+      {
+        resolve: `gatsby-plugin-sharp`,
+        options: {
+          defaults: {
+            quality: 70,
+            formats: ["auto", "webp", "avif"],
+            placeholder: "blurred",
+          },
+        },
+      },
+      `gatsby-transformer-sharp`,
     ].filter(Boolean),
   }
 }

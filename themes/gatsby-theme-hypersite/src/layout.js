@@ -7,10 +7,7 @@ import Main from "./main/main"
 import Header from "./header/header"
 import Footer from "./footer/footer"
 
-const Layout = ({ children, pageContext }) => {
-  const {
-    frontmatter: { seo },
-  } = pageContext
+const Layout = ({ children, seo }) => {
   return (
     <Page>
       <Seo {...seo} />

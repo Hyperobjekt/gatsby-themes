@@ -52,18 +52,20 @@ exports.createSchemaCustomization = ({ actions }) => {
 
   const frontmatterTypeDefs = `
     type MdxFrontmatter implements Node {
+      title: String!
       publish: Boolean
       path: String
       alias: String
       lang: String
       template: String
       seo: SeoFrontmatter
+      embeddedImages: [File] @fileByRelativePath
     }
     type SeoFrontmatter {
       title: String
       description: String
       keywords: String
-      image: String
+      image: File @fileByRelativePath
       isBlogPost: Boolean
     }
   `
@@ -114,13 +116,6 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
             alias
             lang
             template
-            seo {
-              title
-              description
-              keywords
-              image
-              isBlogPost
-            }
           }
           fileAbsolutePath
         }
