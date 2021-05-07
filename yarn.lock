@@ -1395,6 +1395,16 @@
     "@n8tb1t/use-scroll-position" "^2.0.3"
     clsx "^1.1.1"
 
+"@hyperobjekt/material-ui-website@1.0.13":
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@hyperobjekt/material-ui-website/-/material-ui-website-1.0.13.tgz#a53e5ecf551922bac05b6f2f5df11c5612b2ea4c"
+  integrity sha512-VTHZ1RqDIedw6sRZjkLddQL94dGQuh7nEJ4g7JkpSfiB7H1HwjTKFt16+zxNTWMKvMJp7WaZ1q0r6l5yrhsCGA==
+  dependencies:
+    "@material-ui/core" "^4.11.3"
+    "@material-ui/icons" "^4.11.2"
+    "@n8tb1t/use-scroll-position" "^2.0.3"
+    clsx "^1.1.1"
+
 "@iarna/toml@^2.2.5":
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"
