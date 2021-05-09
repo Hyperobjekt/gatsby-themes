@@ -1395,15 +1395,16 @@
     "@n8tb1t/use-scroll-position" "^2.0.3"
     clsx "^1.1.1"
 
-"@hyperobjekt/material-ui-website@1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@hyperobjekt/material-ui-website/-/material-ui-website-1.0.13.tgz#a53e5ecf551922bac05b6f2f5df11c5612b2ea4c"
-  integrity sha512-VTHZ1RqDIedw6sRZjkLddQL94dGQuh7nEJ4g7JkpSfiB7H1HwjTKFt16+zxNTWMKvMJp7WaZ1q0r6l5yrhsCGA==
+"@hyperobjekt/material-ui-website@1.0.16":
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/@hyperobjekt/material-ui-website/-/material-ui-website-1.0.16.tgz#fe7d46e4661c6d557e43a11ead7983746ae4b884"
+  integrity sha512-Zgv7wttU5Alv6IeVJlAMyKiWKD8kfPRAB0wxXocCEu4aF+RDlWcbodHc4+3tszJYOUrGniDe5QewixMwkC9H0A==
   dependencies:
     "@material-ui/core" "^4.11.3"
     "@material-ui/icons" "^4.11.2"
     "@n8tb1t/use-scroll-position" "^2.0.3"
     clsx "^1.1.1"
+    react-intersection-observer "^8.31.1"
 
 "@iarna/toml@^2.2.5":
   version "2.2.5"
@@ -11607,6 +11608,11 @@ react-helmet@^6.1.0:
     prop-types "^15.7.2"
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
+
+react-intersection-observer@^8.31.1:
+  version "8.31.1"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.31.1.tgz#dea4e9a10bbfc899c4159eadd94354cc083920b5"
+  integrity sha512-Q4OH2aUXcEi6tPBBgOBjfodoRM68wikXqqbPf8FaY4VBMcSACbxulfkW/OqcfLYfSAOEPGvxN+NCn9PqBgAOfQ==
 
 react-is@^16.12.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"

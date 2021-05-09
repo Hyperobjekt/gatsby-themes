@@ -454,9 +454,9 @@ type Mdx implements Node @childOf(mimeTypes: ["text/markdown", "text/x-markdown"
 
 type MdxFrontmatter @derivedTypes {
   title: String!
-  publish: Boolean
+  draft: Boolean
   path: String
-  seo: MdxFrontmatterSeo
+  meta: MdxFrontmatterSeo
   hero: File @fileByRelativePath
 }
 
@@ -488,12 +488,12 @@ type MdxWordCount {
 
 type Frontmatter {
   title: String
-  publish: Boolean!
+  draft: Boolean
   path: String!
   alias: String
   lang: String
   template: String
-  seo: SeoFrontmatter
+  meta: SeoFrontmatter
   embeddedImages: [File] @fileByRelativePath
 }
 

@@ -7,15 +7,15 @@ export default function PagesTemplate(props) {
   const mdx = props.data.mdx
   const frontmatter = props.data.mdx.frontmatter
   const image =
-    frontmatter?.seo?.image?.childImageSharp?.gatsbyImageData?.images?.fallback
+    frontmatter?.meta?.image?.childImageSharp?.gatsbyImageData?.images?.fallback
       ?.src
   const seo = {
-    ...(frontmatter.seo ? frontmatter.seo : {}),
+    ...(frontmatter?.meta || {}),
     image: image ? props.location.origin + image : undefined,
   }
   return (
     <Layout seo={seo} {...props}>
-      <MDXRenderer localImages={frontmatter?.embeddedImages}>
+      <MDXRenderer meta={seo} localImages={frontmatter?.embeddedImages}>
         {mdx.body}
       </MDXRenderer>
     </Layout>
@@ -28,7 +28,7 @@ export const pageQuery = graphql`
       id
       body
       frontmatter {
-        seo {
+        meta {
           title
           description
           keywords

@@ -25,6 +25,9 @@ const Header = ({ children, ...props }) => {
         <DesktopNavigation
           LinkComponent={GatsbyLink}
           isGatsbyLink={true}
+          LinkProps={{
+            partiallyActive: true,
+          }}
           links={siteMetadata.menuLinks}
         />
         <MobileNavigation buttonLabel="Menu" links={siteMetadata.menuLinks} />

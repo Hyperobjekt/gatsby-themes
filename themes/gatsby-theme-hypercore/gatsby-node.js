@@ -46,23 +46,22 @@ exports.createSchemaCustomization = ({ actions }) => {
     type SubMenu {
       name: String
       link: String
-      type: String
     }
   `
 
   const frontmatterTypeDefs = `
     type MdxFrontmatter implements Node {
-      title: String!
-      publish: Boolean
-      path: String
+      name: String
+      draft: Boolean
+      path: String!
       alias: String
       lang: String
       template: String
-      seo: SeoFrontmatter
+      meta: SeoFrontmatter!
       embeddedImages: [File] @fileByRelativePath
     }
     type SeoFrontmatter {
-      title: String
+      title: String!
       description: String
       keywords: String
       image: File @fileByRelativePath
@@ -111,11 +110,15 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
         nodes {
           id
           frontmatter {
-            publish
+            name
+            draft
             path
             alias
             lang
             template
+            meta {
+              title
+            }
           }
           fileAbsolutePath
         }
@@ -137,8 +140,7 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
     (node) =>
       isChildOf(node.fileAbsolutePath, pagesPath) &&
       Boolean(node.frontmatter.path) &&
-      (node.frontmatter.publish === true ||
-        process.env.NODE_ENV !== "production")
+      (node.frontmatter.draft !== true || process.env.PUBLISH_DRAFTS)
   )
   createPages(pages, actions.createPage, themeOptions)
 }
