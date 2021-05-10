@@ -6,25 +6,24 @@ import Seo from "./seo"
 import Main from "./main/main"
 import Header from "./header/header"
 import Footer from "./footer/footer"
-import Breadcrumb, { useBreadcrumb, BreadcrumbNavigation } from "./breadcrumb"
-import { Container } from "@hyperobjekt/material-ui-website"
-import { Box } from "@material-ui/core"
+import { useLocation } from "@reach/router"
+import Breadcrumb, { useBreadcrumb } from "./breadcrumb"
 const Layout = ({ children, meta }) => {
   const links = useBreadcrumb()
+  const location = useLocation()
+  const classes = location.pathname
+    .split("/")
+    .filter(Boolean)
+    .map((name) => `HypPage-${name}`)
+    .join(" ")
   return (
-    <Page>
+    <Page className={classes}>
       <Seo {...meta} />
       <Header>
         <SkipNavLink />
       </Header>
       <Main>
-        {links.length > 1 && (
-          <Box pb={2} pt={2} bgcolor="grey.200">
-            <Container>
-              <Breadcrumb />
-            </Container>
-          </Box>
-        )}
+        {links.length > 1 && <Breadcrumb />}
         <SkipNavContent />
         {children}
       </Main>

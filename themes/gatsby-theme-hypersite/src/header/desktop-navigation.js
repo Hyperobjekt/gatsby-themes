@@ -1,4 +1,4 @@
-import { Navigation } from "@hyperobjekt/material-ui-website"
+import { HorizontalNavigation } from "@hyperobjekt/material-ui-website"
 import { withStyles } from "@material-ui/core"
 
 export default withStyles((theme) => ({
@@ -12,6 +12,9 @@ export default withStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
   },
+  listItem: {
+    background: theme.palette.primary.main,
+  },
   link: {
     color: theme.palette.primary.contrastText,
     textDecoration: "none",
@@ -19,4 +22,7 @@ export default withStyles((theme) => ({
       textDecoration: "underline",
     },
   },
-}))(Navigation)
+  linkActive: {
+    fontWeight: "bold",
+  },
+}))(HorizontalNavigation)

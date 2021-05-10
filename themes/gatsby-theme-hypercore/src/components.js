@@ -2,6 +2,7 @@ import React from "react"
 import {
   Box,
   Button,
+  Divider,
   Grid,
   Link,
   List,
@@ -48,7 +49,7 @@ export const H6 = ({ children, ...props }) => (
   </Typography>
 )
 export const Paragraph = ({ children, ...props }) => (
-  <Typography gutterBottom variant="body1" paragraph={true} {...props}>
+  <Typography variant="body1" {...props}>
     {children}
   </Typography>
 )
@@ -64,7 +65,7 @@ export const BulletList = withStyles(
     root: {
       listStyleType: "disc",
       paddingLeft: theme.spacing(2),
-      marginBottom: theme.spacing(2),
+      margin: theme.spacing(2, 0),
       paddingTop: 0,
       paddingBottom: 0,
       "& > li": {
@@ -81,7 +82,7 @@ export const OrderedList = withStyles(
     root: {
       listStyleType: "decimal",
       paddingLeft: theme.spacing(2),
-      marginBottom: theme.spacing(2),
+      margin: theme.spacing(2, 0),
       paddingTop: 0,
       paddingBottom: 0,
       "& > li": {
@@ -93,11 +94,31 @@ export const OrderedList = withStyles(
   { name: "HypOrderedList" }
 )(List)
 
-export const CodeInline = styled("code")({
+export const CodeInline = styled("code")((theme) => ({
   background: "#eee",
   padding: 8,
   borderRadius: 4,
-})
+}))
+
+const MdxTableCell = ({ align, ...props }) => {
+  return <TableCell align="left" {...props} />
+}
+
+const Blockquote = ({ children, ...props }) => (
+  <Box
+    bgcolor="grey.200"
+    color="text.primary"
+    p={3}
+    m={0}
+    mt={2}
+    mb={2}
+    borderLeft={`0.5rem solid`}
+    borderColor="grey.300"
+    {...props}
+  >
+    <Typography>{children}</Typography>
+  </Box>
+)
 
 const components = {
   h1: H1,
@@ -111,15 +132,16 @@ const components = {
   ul: BulletList,
   li: TextListItem,
   ol: (props) => <OrderedList component="ol" {...props} />,
+  blockquote: Blockquote,
   table: Table,
   thead: TableHead,
   tbody: TableBody,
   tr: TableRow,
-  td: TableCell,
-  th: TableCell,
+  td: MdxTableCell,
+  th: MdxTableCell,
+  hr: Divider,
   button: Button,
   a: Link,
-  code: CodeInline,
   div: Box,
   Grid: Grid,
 }

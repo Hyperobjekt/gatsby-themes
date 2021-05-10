@@ -90,7 +90,7 @@ const createPages = (pageNodes, createPage, themeOptions) => {
       themeOptions.layouts.hasOwnProperty(templateKey)
     const component = hasTemplate
       ? themeOptions.layouts[templateKey]
-      : require.resolve(`./src/pages.js`)
+      : require.resolve(`./src/templates/page.js`)
     createPage({
       path: node.frontmatter.path,
       component: component,

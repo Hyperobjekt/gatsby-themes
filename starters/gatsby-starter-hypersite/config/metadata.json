@@ -8,16 +8,14 @@
   "image": "/image/social.jpg",
   "menuLinks": [
     {
-      "name": "Home",
-      "link": "/"
-    },
-    {
       "name": "Components",
-      "link": "/components"
-    },
-    {
-      "name": "Styles",
-      "link": "/styles"
+      "link": "/components",
+      "subMenu": [
+        {
+          "name": "Styles",
+          "link": "/components/styles"
+        }
+      ]
     },
     {
       "name": "Guide",

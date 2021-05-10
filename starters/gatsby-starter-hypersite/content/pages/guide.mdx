@@ -19,20 +19,240 @@ import { getImage, GatsbyImage } from "gatsby-plugin-image"
 
 <Block>
 
-### Getting Started
+### Create your site
 
-#### Site Metadata
+Create a gatsby site using this starter with:
+
+```
+gatsby new my-website https://github.com/Hyperobjekt/gatsby-starter-hypersite
+```
+
+Run the site in development mode by navigating to the folder and running
+
+```
+npm run develop
+```
+
+</Block>
+
+<Block bgcolor="grey.100">
+
+### Configure your site
+
+Site-wide configuration is managed through the `/config/metadata.json` file. Open this file to view the configuration
+
+---
+
+#### Create your site navigation structure
+
+1. Edit the `menuLinks` property of the metadata object to create your site navigation structure. You can create nested levels of navigation by adding a `subMenu` property to an entry.
+1. Save the file and restart the development server to see your changes (`npm run develop`)
+
+##### Example site navigation configuration
+
+```js
+{
+  // ...
+  "menuLinks": [
+    {
+      "name": "About Us",
+      "link": "/about-us",
+      // nested items
+      "subMenu" : [
+        {
+          "name": "Who We Are",
+          "link": "/about-us/who-we-are"
+        },
+        {
+          "name": "Careers",
+          "link": "/about-us/Careers"
+        }
+      ]
+    },
+    {
+      "name": "Styles",
+      "link": "/styles"
+    },
+    {
+      "name": "Guide",
+      "link": "/guide"
+    }
+  ],
+  //...
+}
+```
+
+---
+
+#### Configure the default metadata
+
+The default metadata defines what page titles, descriptions, and social images will be used by default if values are not provided at the page level.
+
+1. open `/config/metadata.json`
+2. edit the `siteUrl`, `title`, `description`, `keywords`, and `image` properties to set default values for the site
+3. save the file, restart the dev server to see changes
+
+> the social image for the site should be placed in the `static` folder (e.g. `/static/images/social.png`). Anything in the `/static` folder will be copied to the root directory of your website, so you can reference this image as `/images/social.png`.
+
+---
+
+##### Example metadata configuration
+
+```js
+{
+  "siteUrl": "https://gatsby-starter-hypersite.netlify.app",
+  "title": "Hypersite",
+  "description": "Hypersite is a gatsby starter to help get started quick.",
+  "keywords": ["gatsby", "theme", "react"],
+  "image": "/image/social.jpg", // file placed in `/static/image/social.jpg`
+  // ...
+}
+```
+
+---
+
+#### Configure other metadata (optional)
+
+You can also set additional parameters in your metadata, like social media account or a copyright notice. Below is the full list of metadata supported in the `gatsby-theme-hypersite`:
+
+| key           | value                                                                                                                                                                                         |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `siteUrl`     | base url for the website                                                                                                                                                                      |
+| `title`       | default title for site pages                                                                                                                                                                  |
+| `description` | default meta description for site pages                                                                                                                                                       |
+| `keywords`    | default meta keywords for site pages                                                                                                                                                          |
+| `image`       | default image to use for social sharing                                                                                                                                                       |
+| `copyright`   | a copyright string for the footer                                                                                                                                                             |
+| `menuLinks`   | an array of objects that define the site navigation.<br />Each object requires a `name` and `link` property (e.g. `{ name: "Home", link: "/" }`)                                              |
+| `social`      | an array of social media accounts for social links component<br /> The following name props can be used: "Facebook", "Twitter", "Linkedin", "Instagram", "Github", "Youtube", "Link", "Email" |
+
+</Block>
+
+<Block>
+
+### Create Pages
+
+For each page in your site's navigation structure, ensure there is also a corresponding page in `/content/pages`.
+
+Each page has frontmatter with configuration for the page and body content that follows.
+
+---
+
+#### Frontmatter
+
+##### Setting the page URL
+
+use the `path` key to configure the path (or "slug") that determines where the page is accessed on your website.
+
+**Example:** create the page at https://your-website.com/guide
+
+```toml
+path: /guide
+```
+
+##### Turning on "draft" Status
+
+use the `draft` key to configure whether the page should be created in the production environment or not. When `draft` is set to `true`, the page will not be created in a production environment but will be created in development or staging environments.
+
+**Example:** do not publish in production
+
+```toml
+draft: true
+```
+
+##### Creating an alias URL for a page (redirect)
+
+use the `alias` key to provide an alternate URL that will direct to this page.
+
+**Example:** page is created at https://your-website.com/guide and the page https://your-website.com/getting-started redirects to it.
+
+```toml
+path: /guide
+alias: /getting-started
+```
+
+##### Setting the page metadata (title, description, social image, etc.)
+
+```toml
+meta:
+  title: Hypercore
+  keywords: gatsby, react
+  description: A starter theme for gatsby
+  image: ./hello.jpg
+```
+
+##### Setting images to use in page content
+
+```toml
+embeddedImages:
+  - ./image1.jpg
+  - ./image2.jpg
+  - ./image3.jpg
+```
+
+---
+
+#### Page Content
+
+##### Using custom components
+
+You can import your own custom components on a per-page basis by adding an import statement at the top of the body content for the page.
+
+If you would like to add the ability to use a custom component across all pages without the need to import, shadow the `mdx.js` file from gatsby-theme-hypercore and include the desired components.
+
+##### Using a different layout
+
+You can export a component from an MDX file to use it as the layout for the page.
+
+See [defining a layout](https://www.gatsbyjs.com/docs/mdx/writing-pages/#defining-a-layout) in th [MDX guide](https://www.gatsbyjs.com/docs/mdx/writing-pages/).
+
+</Block>
+
+<Block bgcolor="grey.100">
 
 ### Theming
 
-#### Colors
+---
 
-#### Typography
+#### Colors, Typography, Margins, Shadows, etc.
 
-#### Layout
+Customize the shadowed theme in `/src/gatsby-theme-hypercore/theme.js` to set breakpoints, colors, typography, layout, shadows.
 
-#### Components
+- See the [theming section of the material-ui docs](https://material-ui.com/customization/theming/) for details on customizing.
+- Refer to the [default theme](https://material-ui.com/customization/default-theme/) to explore all values provided by the material ui theme.
+- Look at [global theme overrides](https://material-ui.com/customization/components/#global-theme-override) to see how you can customize the appearance of any material ui components in use
+- Use [material-ui/styles](https://material-ui.com/styles/basics/#material-ui-styles) for styling components
 
-### Content Management System
+---
+
+#### Adding Custom Web Fonts
+
+TODO
+
+- Google fonts
+- Typekit
+- Typography.com
+- Self-hosted
+
+---
+
+#### Customizing Layout (Header, Footer, etc.)
+
+Use [component shadowing](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/) to override [components from the gatsby-theme-hypersite](https://github.com/Hyperobjekt/gatsby-themes/tree/main/themes/gatsby-theme-hypersite/src) theme.
+
+> For example: create your own header in `/src/gatsby-theme-hypersite/header/header.js` to replace the theme's header with your own.
+
+- See [gatsby-theme-hypersite](https://github.com/Hyperobjekt/gatsby-themes/tree/main/themes/gatsby-theme-hypersite/src) to see the components that can be shadowed
+- See [gatsby-theme-hypercore](https://github.com/Hyperobjekt/gatsby-themes/tree/main/themes/gatsby-theme-hypercore/src) to see which core components can be shadowed
+
+</Block>
+
+<Block>
+
+### Content Management
+
+[Netlify CMS](https://www.netlifycms.org/) is used for content management, common modules and documentation are in the works.
+
+For now, follow [DRY Netlify CMS config with manual initialization](https://mrkaluzny.com/blog/dry-netlify-cms-config-with-manual-initialization/) for a guide on how to configure the CMS for use with gatsby
 
 </Block>

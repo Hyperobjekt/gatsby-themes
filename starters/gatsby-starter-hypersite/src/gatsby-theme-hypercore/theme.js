@@ -21,7 +21,20 @@ let theme = createMuiTheme({
         "[class*='Hero-content'] > .MuiTypography-root:first-child": {
           textShadow: `0 1px 4px #000`,
         },
+        code: {
+          background: "rgb(45, 42, 85)",
+          color: "rgb(158, 254, 255)",
+          padding: "0 4px",
+          borderRadius: "4px",
+          display: "inline-block",
+        },
+        ".MuiTypography-body1 + .MuiTypography-body1": {
+          marginTop: "1rem",
+        },
       },
+    },
+    MuiDivider: {
+      root: { margin: "1rem 0" },
     },
   },
 })

@@ -7,6 +7,7 @@ import MobileNavigation from "./mobile-navigation"
 import Logo from "../logo"
 import { GatsbyLink } from "gatsby-material-ui-components"
 import { useSiteMetadata } from "gatsby-theme-hypercore"
+import MenuIcon from "../icons/menu"
 
 const ContentContainer = styled(Container)({
   display: "flex",
@@ -17,6 +18,7 @@ const ContentContainer = styled(Container)({
 
 const Header = ({ children, ...props }) => {
   const siteMetadata = useSiteMetadata()
+  console.log(siteMetadata.menuLinks)
   return (
     <BaseHeader sticky stickyOffset={0} {...props}>
       {children}
@@ -30,7 +32,10 @@ const Header = ({ children, ...props }) => {
           }}
           links={siteMetadata.menuLinks}
         />
-        <MobileNavigation buttonLabel="Menu" links={siteMetadata.menuLinks} />
+        <MobileNavigation
+          buttonLabel={<MenuIcon />}
+          links={siteMetadata.menuLinks}
+        />
       </ContentContainer>
     </BaseHeader>
   )

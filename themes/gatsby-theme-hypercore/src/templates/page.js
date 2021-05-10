@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 import React from "react"
-import Layout from "./layout"
+import Layout from "../layout"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 export default function PagesTemplate(props) {
@@ -14,8 +14,12 @@ export default function PagesTemplate(props) {
     image: image ? props.location.origin + image : undefined,
   }
   return (
-    <Layout seo={seo} {...props}>
-      <MDXRenderer meta={seo} localImages={frontmatter?.embeddedImages}>
+    <Layout meta={seo} {...props}>
+      <MDXRenderer
+        frontmatter={frontmatter}
+        meta={seo}
+        localImages={frontmatter?.embeddedImages}
+      >
         {mdx.body}
       </MDXRenderer>
     </Layout>

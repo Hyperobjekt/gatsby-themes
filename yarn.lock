@@ -1395,10 +1395,10 @@
     "@n8tb1t/use-scroll-position" "^2.0.3"
     clsx "^1.1.1"
 
-"@hyperobjekt/material-ui-website@1.0.16":
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/@hyperobjekt/material-ui-website/-/material-ui-website-1.0.16.tgz#fe7d46e4661c6d557e43a11ead7983746ae4b884"
-  integrity sha512-Zgv7wttU5Alv6IeVJlAMyKiWKD8kfPRAB0wxXocCEu4aF+RDlWcbodHc4+3tszJYOUrGniDe5QewixMwkC9H0A==
+"@hyperobjekt/material-ui-website@1.0.17":
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/@hyperobjekt/material-ui-website/-/material-ui-website-1.0.17.tgz#ace5c07be36067aa08a5b46150be20b8b91b2fc3"
+  integrity sha512-P+DPh1M4MppVgT9DdRffQ5/CKencOlIjIg5AottDumAYPqSLFSV5qMgmjeeK9kTapbmvD5V3E1odZ7zC4pJluw==
   dependencies:
     "@material-ui/core" "^4.11.3"
     "@material-ui/icons" "^4.11.2"
@@ -11320,6 +11320,11 @@ pretty-format@^25.5.0:
     ansi-regex "^5.0.0"
     ansi-styles "^4.0.0"
     react-is "^16.12.0"
+
+prism-react-renderer@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-1.2.0.tgz#5ad4f90c3e447069426c8a53a0eafde60909cdf4"
+  integrity sha512-GHqzxLYImx1iKN1jJURcuRoA/0ygCcNhfGw1IT8nPIMzarmKQ3Nc+JcG0gi8JXQzuh0C5ShE4npMIoqNin40hg==
 
 probe-image-size@^6.0.0:
   version "6.0.0"

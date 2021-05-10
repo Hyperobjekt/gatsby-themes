@@ -59,7 +59,7 @@ module.exports = (themeOptions) => {
         resolve: `gatsby-plugin-mdx`,
         options: {
           defaultLayouts: {
-            default: require.resolve("./src/pages.js"),
+            default: require.resolve("./src/templates/page.js"),
           },
           gatsbyRemarkPlugins: gatsbyRemarkPlugins,
           remarkPlugins: remarkPlugins,
