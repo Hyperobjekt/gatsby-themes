@@ -1406,6 +1406,17 @@
     clsx "^1.1.1"
     react-intersection-observer "^8.31.1"
 
+"@hyperobjekt/material-ui-website@1.0.18":
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/@hyperobjekt/material-ui-website/-/material-ui-website-1.0.18.tgz#f90a703944c0a588551cd6b4cd93a2f210cdf36a"
+  integrity sha512-f7bZOpE2ikc674sILkM3/lAHUlWkVErJGQelFU/unHoX/I0RO7cBJPMjP3Q86r6h2+UBVwfGMmMd0wsFvRtqtQ==
+  dependencies:
+    "@material-ui/core" "^4.11.3"
+    "@material-ui/icons" "^4.11.2"
+    "@n8tb1t/use-scroll-position" "^2.0.3"
+    clsx "^1.1.1"
+    react-intersection-observer "^8.31.1"
+
 "@iarna/toml@^2.2.5":
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"

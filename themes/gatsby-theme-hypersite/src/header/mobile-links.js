@@ -1,16 +1,24 @@
-import { Navigation } from "@hyperobjekt/material-ui-website"
+import { VerticalNavigation } from "@hyperobjekt/material-ui-website"
 import { withStyles } from "@material-ui/core"
 
 const MobileLinks = withStyles((theme) => ({
   root: {},
+  depth0: {},
+  depth1: {},
+  depth2: {},
   list: {
     display: "flex",
     flexDirection: "column",
     alignItems: "stretch",
     flex: 1,
   },
+  listItem: {
+    "&:hover": {
+      background: theme.palette.action.hover,
+    },
+  },
+  listItemActive: {},
   link: {
-    padding: theme.spacing(2, 3),
     width: "100%",
     flex: 1,
     color: theme.palette.primary.main,
@@ -19,11 +27,8 @@ const MobileLinks = withStyles((theme) => ({
   linkActive: {
     background: theme.palette.action.selected,
   },
-  listItem: {
-    "&:hover": {
-      background: theme.palette.action.hover,
-    },
-  },
-}))(Navigation)
+  arrow: {},
+  separator: {},
+}))(VerticalNavigation)
 
 export default MobileLinks

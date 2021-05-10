@@ -7,9 +7,8 @@ import Main from "./main/main"
 import Header from "./header/header"
 import Footer from "./footer/footer"
 import { useLocation } from "@reach/router"
-import Breadcrumb, { useBreadcrumb } from "./breadcrumb"
+import { Breadcrumb } from "./breadcrumb"
 const Layout = ({ children, meta }) => {
-  const links = useBreadcrumb()
   const location = useLocation()
   const classes = location.pathname
     .split("/")
@@ -23,7 +22,7 @@ const Layout = ({ children, meta }) => {
         <SkipNavLink />
       </Header>
       <Main>
-        {links.length > 1 && <Breadcrumb />}
+        <Breadcrumb />
         <SkipNavContent />
         {children}
       </Main>
