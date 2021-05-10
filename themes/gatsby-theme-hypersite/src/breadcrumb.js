@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import HomeIcon from "./icons/home"
 import SeparatorIcon from "./icons/separator"
@@ -8,9 +9,15 @@ import { HorizontalNavigation } from "@hyperobjekt/material-ui-website/lib/navig
 import { useLocation } from "@reach/router"
 import { withStyles } from "@material-ui/core"
 import { Block } from "@hyperobjekt/material-ui-website/lib/block"
+import clsx from "clsx"
 
-export const BreadcrumbNavigation = withStyles((theme) => ({
+export const styles = (theme) => ({
   root: {
+    position: "relative",
+    zIndex: 10,
+  },
+  container: {},
+  navigation: {
     marginLeft: theme.spacing(-2),
   },
   link: {
@@ -18,7 +25,7 @@ export const BreadcrumbNavigation = withStyles((theme) => ({
     color: theme.palette.primary.main,
   },
   listItem: {
-    "&:hover $link, &:focus-within $link": {
+    "&:hover > $link, &:focus-within > $link": {
       background: "transparent",
       textDecoration: "underline",
     },
@@ -28,12 +35,28 @@ export const BreadcrumbNavigation = withStyles((theme) => ({
       background: "transparent",
     },
   },
+  depth1: {
+    left: theme.spacing(2),
+    maxHeight: "66vh",
+    overflow: "auto",
+    minWidth: 160,
+    zindex: 10,
+    "& $listItem": {
+      background: theme.palette.primary.main,
+      "&:hover $link, &:focus-within $link": {
+        background: theme.palette.action.hover,
+      },
+    },
+    "& $link": {
+      color: theme.palette.primary.contrastText,
+    },
+  },
   separator: {
     display: "flex",
     alignItems: "center",
     "& > svg": { fontSize: 16, margin: "auto" },
   },
-}))(HorizontalNavigation)
+})
 
 export function useBreadcrumb() {
   const { allSitePage } = useStaticQuery(graphql`
@@ -88,7 +111,7 @@ export function useBreadcrumb() {
   )
 }
 
-const Breadcrumb = ({ ...props }) => {
+const Breadcrumb = ({ className, classes, NavigationProps, ...props }) => {
   const links = useBreadcrumb().map((d) => {
     if (d.link === "/")
       return {
@@ -97,25 +120,36 @@ const Breadcrumb = ({ ...props }) => {
       }
     return d
   })
+  const { root, container, navigation, ...navClasses } = classes
   return links.length > 1 ? (
     <Block
       small
-      className="HypBreadcrumb-root"
-      ContainerProps={{ className: "HypBreadcrumb-container" }}
+      className={clsx("HypBreadcrumb-root", root, className)}
+      ContainerProps={{
+        className: clsx("HypBreadcrumb-container", container),
+      }}
+      {...props}
     >
-      <BreadcrumbNavigation
-        className="HypBreadcrumb-navigation"
+      <HorizontalNavigation
+        classes={{
+          root: clsx("HypBreadcrumb-navigation", navigation),
+          ...navClasses,
+        }}
         LinkComponent={GatsbyLink}
         isGatsbyLink={true}
         links={links}
         ArrowIcon={ArrowDropDownIcon}
         separator={<SeparatorIcon />}
-        {...props}
+        {...NavigationProps}
       />
     </Block>
   ) : null
 }
 
-Breadcrumb.propTypes = {}
+Breadcrumb.propTypes = {
+  classes: PropTypes.object,
+  className: PropTypes.string,
+  NavigationProps: PropTypes.object,
+}
 
-export default Breadcrumb
+export default withStyles(styles)(Breadcrumb)

@@ -18,7 +18,6 @@ const ContentContainer = styled(Container)({
 
 const Header = ({ children, ...props }) => {
   const siteMetadata = useSiteMetadata()
-  console.log(siteMetadata.menuLinks)
   return (
     <BaseHeader sticky stickyOffset={0} {...props}>
       {children}
