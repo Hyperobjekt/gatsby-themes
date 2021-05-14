@@ -1395,21 +1395,10 @@
     "@n8tb1t/use-scroll-position" "^2.0.3"
     clsx "^1.1.1"
 
-"@hyperobjekt/material-ui-website@1.0.17":
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/@hyperobjekt/material-ui-website/-/material-ui-website-1.0.17.tgz#ace5c07be36067aa08a5b46150be20b8b91b2fc3"
-  integrity sha512-P+DPh1M4MppVgT9DdRffQ5/CKencOlIjIg5AottDumAYPqSLFSV5qMgmjeeK9kTapbmvD5V3E1odZ7zC4pJluw==
-  dependencies:
-    "@material-ui/core" "^4.11.3"
-    "@material-ui/icons" "^4.11.2"
-    "@n8tb1t/use-scroll-position" "^2.0.3"
-    clsx "^1.1.1"
-    react-intersection-observer "^8.31.1"
-
-"@hyperobjekt/material-ui-website@1.0.18":
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/@hyperobjekt/material-ui-website/-/material-ui-website-1.0.18.tgz#f90a703944c0a588551cd6b4cd93a2f210cdf36a"
-  integrity sha512-f7bZOpE2ikc674sILkM3/lAHUlWkVErJGQelFU/unHoX/I0RO7cBJPMjP3Q86r6h2+UBVwfGMmMd0wsFvRtqtQ==
+"@hyperobjekt/material-ui-website@1.0.19":
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/@hyperobjekt/material-ui-website/-/material-ui-website-1.0.19.tgz#09a448b8030e4decf9117797e92cd852286f3a2d"
+  integrity sha512-wIis3ByvrPxfe2igLY9SW0TOkgvZawTRBqk+RzWfQa5vPwhLN1fn99ahOVekoAuT/O/x1rytjHwS8oWc/jDQoQ==
   dependencies:
     "@material-ui/core" "^4.11.3"
     "@material-ui/icons" "^4.11.2"
