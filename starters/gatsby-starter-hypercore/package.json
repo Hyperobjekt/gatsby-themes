@@ -1,13 +1,13 @@
 {
   "name": "gatsby-starter-hypercore",
   "description": "Core starter for Hyperobjekt Gatsby Sites",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Lane Olson <laneolson@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "gatsby": "^3.2.1",
     "gatsby-plugin-image": "^1.4.0",
-    "gatsby-theme-hypercore": "^1.0.6",
+    "gatsby-theme-hypercore": "^1.0.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
