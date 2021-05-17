@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet"
 import PropTypes from "prop-types"
 import { useSiteMetadata } from "gatsby-theme-hypercore"
 import * as _pick from "lodash.pick"
-
+import { useLocation } from "@reach/router"
 export const SEO_KEYS = ["title", "description", "keywords", "image"]
 
 export function Seo({
@@ -14,9 +14,10 @@ export function Seo({
   image,
   url,
   twitter,
+  siteName,
 }) {
   return (
-    <Helmet>
+    <Helmet titleTemplate={title !== siteName ? `%s | ${siteName}` : `%s`}>
       {/* General tags */}
       <title>{title}</title>
       {description && <meta name="description" content={description} />}
@@ -42,16 +43,23 @@ export function Seo({
 
 function SeoWithDefaults(props) {
   const siteMetadata = useSiteMetadata()
+  const { pathname } = useLocation()
+  const siteUrl = siteMetadata.siteUrl
   const twitter = Array.isArray(siteMetadata.social)
     ? siteMetadata.social.find((s) => s.name?.toLowerCase() === "twitter")
     : null
   const defaultProps = _pick(siteMetadata, SEO_KEYS)
-  const seoProps = {
+  const seo = {
     ...defaultProps,
     twitter: twitter?.value,
     ...props,
+    url: `${siteUrl}${pathname}`,
   }
-  return <Seo {...seoProps} />
+  // add fallback social image
+  if (!seo.image) seo.image = defaultProps.image
+  // add siteUrl to base of image if it's not external
+  if (seo.image?.indexOf("http") !== 0) seo.image = siteUrl + seo.image
+  return <Seo siteName={siteMetadata.title} {...seo} />
 }
 
 SeoWithDefaults.propTypes = {

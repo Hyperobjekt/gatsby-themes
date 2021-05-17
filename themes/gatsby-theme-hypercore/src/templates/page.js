@@ -3,16 +3,29 @@ import React from "react"
 import Layout from "../layout"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
+/**
+ * Pulls either a gatsby image or a image path from frontmatter
+ * @param {*} frontmatter
+ * @returns
+ */
+const getSocialImage = (frontmatter) => {
+  const metaImage = frontmatter?.meta?.image
+  const gatsbyImage =
+    metaImage &&
+    metaImage.childImageSharp?.gatsbyImageData?.images?.fallback?.src
+  if (gatsbyImage) return gatsbyImage
+  if (metaImage) return metaImage
+  return null
+}
+
 export default function PagesTemplate(props) {
   const mdx = props.data.mdx
   const frontmatter = props.data.mdx.frontmatter
-  const image =
-    frontmatter?.meta?.image?.childImageSharp?.gatsbyImageData?.images?.fallback
-      ?.src
+  const image = getSocialImage(frontmatter)
   const seo = {
     ...(frontmatter?.meta || {}),
-    image: image ? props.location.origin + image : undefined,
   }
+  if (image) seo.image = image
   return (
     <Layout meta={seo} {...props}>
       <MDXRenderer
