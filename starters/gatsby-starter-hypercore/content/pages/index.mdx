@@ -1,13 +1,25 @@
 ---
 name: Home
-path: /
 meta:
   title: Hypercore
   description: A starter theme for gatsby
   image: ./hello.jpg
+store:
+  - key: greeting
+    value: Hello
+  - key: recipient
+    value: World
 ---
 
 # Hypercore
+
+<p>
+  The following greeting is coming from frontmatter: 
+</p>
+
+<h2>{props.store.greeting} {props.store.recipient}</h2>
+
+This is a plain image in markdown that is automatically optimized:
 
 ![image](./hello.jpg)
 

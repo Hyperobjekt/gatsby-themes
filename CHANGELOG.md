@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.1.0] 5/26/21
+
+Core theme updates:
+
+- allow `path` frontmatter to be optional (will use file location + name as slug)
+- allow `store` frontmatter to store key/value strings
+- update page template to pass values to MDX renderer
+
+
 ## [1.0.10] 05/17/2021
 
 - fix issue where social images were not linked correctly

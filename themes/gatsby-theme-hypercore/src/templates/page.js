@@ -9,7 +9,8 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
  * @returns
  */
 const getSocialImage = (frontmatter) => {
-  const metaImage = frontmatter?.meta?.image
+  if (!frontmatter) return null
+  const metaImage = frontmatter.meta?.image
   const gatsbyImage =
     metaImage &&
     metaImage.childImageSharp?.gatsbyImageData?.images?.fallback?.src
@@ -18,20 +19,35 @@ const getSocialImage = (frontmatter) => {
   return null
 }
 
+/** 
+ * Maps the key value string store in frontmatter to a JSON object
+ * available in `props.store` of the MDX body.
+ */
+const getKeyValueStore = (store) => {
+  if (Array.isArray(store))
+    return store.reduce((obj, { key, value}) => {
+      obj[key] = value
+      return obj
+    }, {})
+  return {}
+}
+
 export default function PagesTemplate(props) {
   const mdx = props.data.mdx
-  const frontmatter = props.data.mdx.frontmatter
+  const frontmatter = mdx.frontmatter || {}
   const image = getSocialImage(frontmatter)
-  const seo = {
-    ...(frontmatter?.meta || {}),
-  }
+  const seo = frontmatter.meta || {}
   if (image) seo.image = image
+  const store = getKeyValueStore(frontmatter.store)
+  const localImages = frontmatter.embeddedImages || []
   return (
     <Layout meta={seo} {...props}>
+      {/* props passed to MDXRenderer are available in the MDX body */}
       <MDXRenderer
         frontmatter={frontmatter}
         meta={seo}
-        localImages={frontmatter?.embeddedImages}
+        store={store}
+        localImages={localImages}
       >
         {mdx.body}
       </MDXRenderer>
@@ -44,6 +60,13 @@ export const pageQuery = graphql`
     mdx(id: { eq: $id }) {
       id
       body
+      slug
+      timeToRead
+      tableOfContents
+      wordCount {
+        sentences
+        words
+      }
       frontmatter {
         meta {
           title
@@ -64,6 +87,10 @@ export const pageQuery = graphql`
           childImageSharp {
             gatsbyImageData(layout: FULL_WIDTH)
           }
+        }
+        store {
+          key
+          value
         }
       }
     }

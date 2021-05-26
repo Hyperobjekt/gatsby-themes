@@ -1,3 +1,4 @@
+const { createFilePath } = require("gatsby-source-filesystem")
 const path = require("path")
 
 /**
@@ -53,19 +54,24 @@ exports.createSchemaCustomization = ({ actions }) => {
     type MdxFrontmatter implements Node {
       name: String
       draft: Boolean
-      path: String!
+      path: String
       alias: String
       lang: String
       template: String
       meta: SeoFrontmatter!
       embeddedImages: [File] @fileByRelativePath
+      store: [Store]
     }
     type SeoFrontmatter {
-      title: String!
+      title: String
       description: String
       keywords: String
       image: File @fileByRelativePath
       isBlogPost: Boolean
+    }
+    type Store {
+      key: String
+      value: String
     }
   `
   createTypes(subMenuTypeDefs)
@@ -82,7 +88,10 @@ const createRedirects = (redirectNodes, createRedirect) => {
   })
 }
 
-const createPages = (pageNodes, createPage, themeOptions) => {
+/** 
+ * Creates pages for the given provided nodes 
+ */
+const createPages = (pageNodes, {createPage}, themeOptions) => {
   pageNodes.forEach((node) => {
     const templateKey = node.frontmatter.template || "default"
     const hasTemplate =
@@ -91,15 +100,21 @@ const createPages = (pageNodes, createPage, themeOptions) => {
     const component = hasTemplate
       ? themeOptions.layouts[templateKey]
       : require.resolve(`./src/templates/page.js`)
-    createPage({
-      path: node.frontmatter.path,
-      component: component,
-      context: {
-        id: node.id,
-        pathSlug: node.frontmatter.path,
-        frontmatter: node.frontmatter,
-      },
-    })
+    // use frontmatter path if it exists, if not fallback on filename based slug
+    const pageSlug = node.frontmatter?.path || '/' + node.slug
+    if (pageSlug) {
+      createPage({
+        path: pageSlug,
+        component: component,
+        context: {
+          id: node.id,
+          pathSlug: pageSlug,
+          frontmatter: node.frontmatter,
+        },
+      })
+    } else {
+      console.warn('unable to create page (missing path)')
+    }
   })
 }
 
@@ -109,6 +124,7 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
       allMdx {
         nodes {
           id
+          slug
           frontmatter {
             name
             draft
@@ -129,18 +145,20 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
     reporter.panic("failed to create pages ", result.errors)
   }
 
+  // process MDX nodes that have redirects
   const redirects = result.data.allMdx.nodes.filter((node) =>
     Boolean(node.frontmatter.alias)
   )
   createRedirects(redirects, actions.createRedirect)
 
+
+  // process pages
   const pagesPath = path.resolve(themeOptions.contentPath)
-  // only create pages for files in the content path
+  // filter out pages that are outsite the theme content path and have draft status
   const pages = result.data.allMdx.nodes.filter(
     (node) =>
       isChildOf(node.fileAbsolutePath, pagesPath) &&
-      Boolean(node.frontmatter.path) &&
       (node.frontmatter.draft !== true || process.env.PUBLISH_DRAFTS)
   )
-  createPages(pages, actions.createPage, themeOptions)
+  createPages(pages, actions, themeOptions)
 }

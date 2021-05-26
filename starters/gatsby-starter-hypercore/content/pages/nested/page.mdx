@@ -1,0 +1,16 @@
+---
+name: Nested Page
+meta:
+  title: Nested Page
+  description: A starter theme for gatsby
+  image: ./hello.jpg
+store:
+  - key: greeting
+    value: Hello
+  - key: recipient
+    value: World
+---
+
+<h1>
+  {props.store.greeting} {props.store.recipient}
+</h1>
