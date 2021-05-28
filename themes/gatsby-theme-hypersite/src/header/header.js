@@ -6,8 +6,9 @@ import DesktopNavigation from "./desktop-navigation"
 import MobileNavigation from "./mobile-navigation"
 import Logo from "../logo"
 import { GatsbyLink } from "gatsby-material-ui-components"
-import { useSiteMetadata } from "gatsby-theme-hypercore"
 import MenuIcon from "../icons/menu"
+import { SkipNavLink } from "@reach/skip-nav"
+import SocialLinks from "./social-links"
 
 const ContentContainer = styled(Container)({
   display: "flex",
@@ -16,25 +17,26 @@ const ContentContainer = styled(Container)({
   justifyContent: "space-between",
 })
 
-const Header = ({ children, ...props }) => {
-  const siteMetadata = useSiteMetadata()
+/**
+ *  Basic site header component.  Shows skip nav, logo, and navigation.
+ */
+const Header = ({ logo, links, title, social, children, ...props }) => {
   return (
     <BaseHeader sticky stickyOffset={0} {...props}>
-      {children}
+      <SkipNavLink />
       <ContentContainer>
-        <Logo />
+        <Logo title={title} logo={logo} />
         <DesktopNavigation
           LinkComponent={GatsbyLink}
           isGatsbyLink={true}
           LinkProps={{
             partiallyActive: true,
           }}
-          links={siteMetadata.menuLinks}
+          links={links}
         />
-        <MobileNavigation
-          buttonLabel={<MenuIcon />}
-          links={siteMetadata.menuLinks}
-        />
+        <MobileNavigation buttonLabel={<MenuIcon />} links={links} />
+        <SocialLinks links={social} />
+        {children}
       </ContentContainer>
     </BaseHeader>
   )

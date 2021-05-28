@@ -1,3 +1,1 @@
-import ChevronRight from "@material-ui/icons/ChevronRight"
-
-export default ChevronRight
+export { default } from "@material-ui/icons/ChevronRight"

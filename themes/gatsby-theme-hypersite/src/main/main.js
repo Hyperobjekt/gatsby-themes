@@ -1,3 +1,1 @@
-import { Main } from "@hyperobjekt/material-ui-website"
-
-export default Main
+export { Main as default } from "@hyperobjekt/material-ui-website"

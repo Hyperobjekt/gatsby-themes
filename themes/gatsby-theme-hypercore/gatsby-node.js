@@ -38,10 +38,16 @@ exports.createSchemaCustomization = ({ actions }) => {
       menuLinks: [MenuLinks]
       logo: String
       icon: String
+      social: [SocialAccounts]
+    }
+    type SocialAccounts {
+      name: String!
+      value: String!
     }
     type MenuLinks {
       name: String!
       link: String!
+      location: String
       subMenu: [SubMenu] @defaultSubMenu
     }
     type SubMenu {
@@ -88,20 +94,18 @@ const createRedirects = (redirectNodes, createRedirect) => {
   })
 }
 
-/** 
- * Creates pages for the given provided nodes 
+/**
+ * Creates pages for the given provided nodes
  */
-const createPages = (pageNodes, {createPage}, themeOptions) => {
+const createPages = (pageNodes, { createPage }, themeOptions) => {
   pageNodes.forEach((node) => {
     const templateKey = node.frontmatter.template || "default"
-    const hasTemplate =
-      themeOptions.hasOwnProperty("layouts") &&
-      themeOptions.layouts.hasOwnProperty(templateKey)
-    const component = hasTemplate
-      ? themeOptions.layouts[templateKey]
-      : require.resolve(`./src/templates/page.js`)
+    const component =
+      themeOptions.templates?.[templateKey] ||
+      themeOptions.layouts?.[templateKey] ||
+      require.resolve(`./src/templates/page.js`)
     // use frontmatter path if it exists, if not fallback on filename based slug
-    const pageSlug = node.frontmatter?.path || '/' + node.slug
+    const pageSlug = node.frontmatter?.path || "/" + node.slug
     if (pageSlug) {
       createPage({
         path: pageSlug,
@@ -113,12 +117,17 @@ const createPages = (pageNodes, {createPage}, themeOptions) => {
         },
       })
     } else {
-      console.warn('unable to create page (missing path)')
+      console.warn("unable to create page (missing path)")
     }
   })
 }
 
 exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
+  if (themeOptions.layouts) {
+    reporter.warn(
+      "the `layouts` configuration key on `gatsby-theme-hypercore` has been renamed to `templates`.  Please update the theme config in `gatsby-config`."
+    )
+  }
   const result = await graphql(`
     query {
       allMdx {
@@ -150,7 +159,6 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
     Boolean(node.frontmatter.alias)
   )
   createRedirects(redirects, actions.createRedirect)
-
 
   // process pages
   const pagesPath = path.resolve(themeOptions.contentPath)

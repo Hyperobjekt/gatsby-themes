@@ -1,13 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
-import HomeIcon from "../icons/home"
 import SeparatorIcon from "../icons/separator"
 import ArrowDropDownIcon from "../icons/dropdown"
 import { GatsbyLink } from "gatsby-theme-material-ui"
 import { HorizontalNavigation } from "@hyperobjekt/material-ui-website"
 import { withStyles } from "@material-ui/core"
 import { Block } from "@hyperobjekt/material-ui-website/lib/block"
-import { useBreadcrumb } from "./use-breadcrumb"
 import clsx from "clsx"
 
 export const styles = (theme) => ({
@@ -64,19 +62,12 @@ export const styles = (theme) => ({
 export const Breadcrumb = ({
   className,
   classes,
+  links,
   NavigationProps,
   ...props
 }) => {
-  const links = useBreadcrumb().map((d) => {
-    if (d.link === "/")
-      return {
-        ...d,
-        name: <HomeIcon aria-label="home" />,
-      }
-    return d
-  })
   const { root, container, navigation, ...navClasses } = classes
-  return links.length > 1 ? (
+  return links && links.length > 1 ? (
     <Block
       small
       className={clsx("HypBreadcrumb-root", root, className)}

@@ -1,3 +1,1 @@
-import { Block } from "@hyperobjekt/material-ui-website"
-
-export default Block
+export { Block as default } from "@hyperobjekt/material-ui-website"

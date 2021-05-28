@@ -15,6 +15,7 @@ export const useSiteMetadata = () => {
             menuLinks {
               name
               link
+              location
               subMenu {
                 name
                 link

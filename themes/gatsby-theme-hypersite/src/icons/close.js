@@ -1,3 +1,1 @@
-import CloseIcon from "@material-ui/icons/Close"
-
-export default CloseIcon
+export { default } from "@material-ui/icons/Close"

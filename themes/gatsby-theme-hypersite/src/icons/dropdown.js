@@ -1,3 +1,1 @@
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown"
-
-export default ArrowDropDownIcon
+export { default } from "@material-ui/icons/ArrowDropDown"
