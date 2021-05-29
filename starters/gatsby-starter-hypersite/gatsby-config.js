@@ -1,3 +1,4 @@
+const path = require("path")
 const metadata = require("./config/metadata.json")
 module.exports = {
   siteMetadata: metadata,
@@ -7,6 +8,11 @@ module.exports = {
       options: {
         contentPath: `content/pages`,
         assetPath: `content/assets`,
+        templates: {
+          customFrontmatter: path.resolve(
+            "./src/templates/customFrontmatter.js"
+          ),
+        },
       },
     },
     // {

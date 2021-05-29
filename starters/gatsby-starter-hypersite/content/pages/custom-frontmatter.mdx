@@ -1,0 +1,112 @@
+---
+name: Custom Data
+meta:
+  title: Custom Data
+  description: How to load custom data on a page
+template: customFrontmatter
+links:
+  - name: Link from frontmatter 1
+    href: https://google.com
+  - name: Link from frontmatter 2
+    href: https://google.com
+  - name: Link from frontmatter 3
+    href: https://google.com
+---
+
+<Block>
+
+Links from frontmatter:
+
+<ul>
+  {props.frontmatter.links.map(({ name, href }) => (
+    <li key={name}>
+      <a href={href}>{name}</a>
+    </li>
+  ))}
+</ul>
+
+</Block>
+
+<Block>
+
+This page is an example of using a custom frontmatter query to pull in additional data to the page.
+
+To create a page with a custom graphql query:
+
+1. Create the page template file in `./src/templates` that exports your page and graphQL query (see `./src/templates/customFrontmatter.js` for this page's template)
+
+File: <em>./src/templates/customFrontmatter.js</em>
+
+```jsx
+import React from "react"
+import { graphql } from "gatsby"
+import { PageTemplate } from "gatsby-theme-hypercore"
+
+export default function CustomFrontmatterTemplate(props) {
+  return <PageTemplate {...props} />
+}
+
+export const pageQuery = graphql`
+  query CustomQuery($id: String) {
+    mdx(id: { eq: $id }) {
+      id
+      body
+      frontmatter {
+        ...
+        // frontmatter you want to query here
+        links {
+          name
+          href
+        }
+      }
+    }
+  }
+`
+```
+
+2. Add the template to the theme configuration:
+
+File: <em>./gatsby-config.js</em>
+
+```js
+{
+  resolve: `gatsby-theme-hypersite`,
+  options: {
+    ...
+    templates: {
+      customFrontmatter: path.resolve(
+        "./src/templates/customFrontmatter.js"
+      ),
+    },
+  },
+}
+```
+
+3. create your page with any custom frontmatter that the page template will query, and also add a `template` key to the frontmatter.
+
+File: <em>./content/pages/custom-frontmatter.mdx</em>
+
+```md
+---
+template: customFrontmatter
+links:
+  - name: Link from frontmatter 1
+    href: https://google.com
+  - name: Link from frontmatter 2
+    href: https://google.com
+  - name: Link from frontmatter 3
+    href: https://google.com
+---
+
+Links from frontmatter:
+
+<ul>
+  {props.frontmatter.links.map(({ name, href }) => (
+    <li key={name}>
+      <a href={href}>{name}</a>
+    </li>
+  ))}
+</ul>
+```
+
+</Block>

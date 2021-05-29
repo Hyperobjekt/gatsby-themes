@@ -14,20 +14,16 @@
         {
           "name": "Styles",
           "link": "/components/styles"
-        },
-        {
-          "name": "Otgher",
-          "link": "/components/styles"
-        },
-        {
-          "name": "One",
-          "link": "/components/styles"
         }
       ]
     },
     {
-      "name": "Guide",
+      "name": "Getting Started",
       "link": "/guide"
+    },
+    {
+      "name": "Custom Data",
+      "link": "/custom-frontmatter"
     }
   ],
   "social": [
