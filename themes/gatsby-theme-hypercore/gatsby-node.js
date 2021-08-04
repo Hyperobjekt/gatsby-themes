@@ -113,6 +113,7 @@ const createPages = (pageNodes, { createPage }, themeOptions) => {
         context: {
           id: node.id,
           pathSlug: pageSlug,
+          slug: node.slug,
           frontmatter: node.frontmatter,
         },
       })

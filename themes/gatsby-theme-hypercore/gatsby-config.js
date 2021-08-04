@@ -63,6 +63,7 @@ module.exports = (themeOptions) => {
           },
           gatsbyRemarkPlugins: gatsbyRemarkPlugins,
           remarkPlugins: remarkPlugins,
+          commonmark:true
         },
       },
       {
