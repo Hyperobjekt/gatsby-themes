@@ -6,6 +6,13 @@ module.exports = (themeOptions) => {
   const remarkImagesOptions = options.remarkImagesOptions
   const gatsbyRemarkPlugins = [
     {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        manualInit: true,
+        modulePath: `./src/cms/cms.js`,
+      },
+    },
+    {
       resolve: `gatsby-remark-relative-images`,
       options: {},
     },
