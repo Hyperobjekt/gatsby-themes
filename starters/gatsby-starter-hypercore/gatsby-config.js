@@ -8,6 +8,16 @@ module.exports = {
         contentPath: `content/pages`,
       },
     },
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          quality: 10,
+          formats: ["auto", "webp", "avif"],
+          placeholder: "blurred",
+        },
+      },
+    },
     // {
     //   resolve: "gatsby-plugin-netlify-cms",
     //   options: {

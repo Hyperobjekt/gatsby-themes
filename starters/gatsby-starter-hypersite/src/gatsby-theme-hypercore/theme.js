@@ -1,4 +1,3 @@
-import pink from "@material-ui/core/colors/pink"
 import { createMuiTheme } from "@material-ui/core"
 
 let theme = createMuiTheme({
@@ -7,19 +6,15 @@ let theme = createMuiTheme({
       main: "#6a00ff",
     },
     secondary: {
-      main: pink[500],
+      main: "#6699cc",
     },
   },
   overrides: {
     MuiCssBaseline: {
       "@global": {
-        ".HypBranding-root": {
-          color: "#fff",
-          fontSize: 24,
-          textDecoration: "none",
-        },
-        "[class*='Hero-content'] > .MuiTypography-root:first-child": {
-          textShadow: `0 1px 4px #000`,
+        // make wrappers fill viewport
+        "html, body, #___gatsby,#gatsby-focus-wrapper": {
+          height: "100%",
         },
         code: {
           background: "rgb(45, 42, 85)",
@@ -28,13 +23,40 @@ let theme = createMuiTheme({
           borderRadius: "4px",
           display: "inline-block",
         },
-        ".MuiTypography-body1 + .MuiTypography-body1": {
-          marginTop: "1rem",
-        },
+      },
+    },
+    MuiTypography: {
+      body1: {
+        margin: "1rem 0",
       },
     },
     MuiDivider: {
       root: { margin: "1rem 0" },
+    },
+    // make the page fill the viewport
+    HypPage: {
+      root: {
+        height: "100%",
+      },
+    },
+    HypBranding: {
+      root: {
+        color: "#fff",
+        fontSize: 24,
+        textDecoration: "none",
+      },
+    },
+    // hide the social links in the header
+    HypSocialLinks: {
+      root: {
+        display: "none",
+      },
+    },
+    // hide the page level breadcrumb
+    HypBreadcrumb: {
+      root: {
+        display: "none",
+      },
     },
   },
 })

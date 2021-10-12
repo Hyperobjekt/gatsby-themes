@@ -43,18 +43,23 @@ export const getMdxProps = (props) => {
   if (image) seo.image = image
   const kvStore = getKeyValueStore(store)
   const localImages = embeddedImages || []
-  return { meta: seo, frontmatter, localImages, store: kvStore, body: mdx.body }
+  return {
+    meta: seo,
+    frontmatter,
+    localImages,
+    store: kvStore,
+    body: mdx.body,
+    tableOfContents: mdx.tableOfContents,
+    timeToRead: mdx.timeToRead,
+    wordCount: mdx.wordCount,
+  }
 }
 
 export default function PagesTemplate(props) {
   const { body, ...mdxProps } = getMdxProps(props)
   return (
     <Layout {...mdxProps} {...props}>
-      {body && (
-        <MDXRenderer {...mdxProps} {...props}>
-          {body}
-        </MDXRenderer>
-      )}
+      {body && <MDXRenderer {...mdxProps}>{body}</MDXRenderer>}
     </Layout>
   )
 }
@@ -76,6 +81,7 @@ export const pageQuery = graphql`
           title
           description
           keywords
+          date
           image {
             childImageSharp {
               gatsbyImageData(

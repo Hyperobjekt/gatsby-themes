@@ -2,10 +2,18 @@ import React from "react"
 import { SocialButton } from "@hyperobjekt/material-ui-website/lib/social-button"
 import { Box } from "@material-ui/core"
 import clsx from "clsx"
+import { withStyles } from "@material-ui/styles"
 
-const SocialLinks = ({ links, ...props }) => {
+const styles = (theme) => ({
+  root: {},
+})
+
+const SocialLinks = ({ classes, className, links, ...props }) => {
   return (
-    <Box className={clsx("HypSocialLinks-root")} {...props}>
+    <Box
+      className={clsx("HypSocialLinks-root", classes.root, className)}
+      {...props}
+    >
       {links.map(({ icon, link }) => (
         <SocialButton key={icon} icon={icon} href={link} />
       ))}
@@ -15,4 +23,4 @@ const SocialLinks = ({ links, ...props }) => {
 
 SocialLinks.propTypes = {}
 
-export default SocialLinks
+export default withStyles(styles, { name: "HypSocialLinks" })(SocialLinks)

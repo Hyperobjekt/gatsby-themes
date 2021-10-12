@@ -1,4 +1,3 @@
-const { createFilePath } = require("gatsby-source-filesystem")
 const path = require("path")
 
 /**
@@ -10,6 +9,14 @@ const path = require("path")
 const isChildOf = (dir, parent) => {
   const relative = path.relative(parent, dir)
   return relative && !relative.startsWith("..") && !path.isAbsolute(relative)
+}
+
+/** Checks if the provided date string (ISO 8601) is in the past */
+const isPastDate = (date) => {
+  if (!date) return true
+  const now = new Date()
+  const dateObj = new Date(date)
+  return dateObj < now
 }
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -72,6 +79,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       keywords: String
+      date: String
       image: File @fileByRelativePath
       isBlogPost: Boolean
     }
@@ -144,6 +152,7 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
             template
             meta {
               title
+              date
             }
           }
           fileAbsolutePath
@@ -167,7 +176,8 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
   const pages = result.data.allMdx.nodes.filter(
     (node) =>
       isChildOf(node.fileAbsolutePath, pagesPath) &&
-      (node.frontmatter.draft !== true || process.env.PUBLISH_DRAFTS)
+      (node.frontmatter.draft !== true || process.env.PUBLISH_DRAFTS) &&
+      isPastDate(node.frontmatter?.meta?.date)
   )
   createPages(pages, actions, themeOptions)
 }

@@ -3,7 +3,7 @@ const withDefaults = require(`./src/default-options`)
 
 module.exports = (themeOptions) => {
   const options = withDefaults(themeOptions)
-  const remarkImagesWidth = options.remarkImagesWidth
+  const remarkImagesOptions = options.remarkImagesOptions
   const gatsbyRemarkPlugins = [
     {
       resolve: `gatsby-remark-relative-images`,
@@ -11,12 +11,7 @@ module.exports = (themeOptions) => {
     },
     {
       resolve: `gatsby-remark-images`,
-      options: {
-        maxWidth: remarkImagesWidth,
-        linkImagesToOriginal: false,
-        withWebp: true,
-        backgroundColor: `transparent`,
-      },
+      options: remarkImagesOptions,
     },
     {
       resolve: `gatsby-remark-copy-linked-files`,
@@ -63,7 +58,7 @@ module.exports = (themeOptions) => {
           },
           gatsbyRemarkPlugins: gatsbyRemarkPlugins,
           remarkPlugins: remarkPlugins,
-          commonmark:true
+          commonmark: true,
         },
       },
       {

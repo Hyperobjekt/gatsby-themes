@@ -8,28 +8,27 @@
   "image": "/images/social.jpg",
   "menuLinks": [
     {
-      "name": "Components",
-      "link": "/components",
-      "subMenu": [
-        {
-          "name": "Styles",
-          "link": "/components/styles"
-        }
-      ]
-    },
-    {
       "name": "Getting Started",
       "link": "/guide"
     },
     {
-      "name": "Custom Data",
-      "link": "/custom-frontmatter"
-    }
+      "name": "Components",
+      "link": "/components"
+    },
+    ({
+      "name": "Recipes",
+      "link": "/recipes"
+    },
+    {
+      "name": "Kitchen Sink",
+      "link": "/kitchen-sink"
+    })
   ],
   "social": [
     {
       "name": "Email",
-      "value": "hyperobjekt@hyperobjekt.com"
+      "value": "hyperobjekt@hyperobjekt.com",
+      "location": "footer"
     },
     {
       "name": "Twitter",

@@ -1,10 +1,7 @@
-import React from "react"
 import { graphql } from "gatsby"
 import { PageTemplate } from "gatsby-theme-hypercore"
 
-export default function CustomFrontmatterTemplate(props) {
-  return <PageTemplate {...props} />
-}
+export default PageTemplate
 
 export const pageQuery = graphql`
   query CustomQuery($id: String) {

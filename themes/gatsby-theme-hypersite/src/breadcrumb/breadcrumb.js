@@ -98,4 +98,4 @@ Breadcrumb.propTypes = {
   NavigationProps: PropTypes.object,
 }
 
-export default withStyles(styles)(Breadcrumb)
+export default withStyles(styles, { name: "HypBreadcrumb" })(Breadcrumb)

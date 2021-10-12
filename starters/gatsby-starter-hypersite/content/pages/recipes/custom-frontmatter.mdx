@@ -1,0 +1,23 @@
+---
+meta:
+  title: Custom Frontmatter Example
+  description: A page with custom frontmatter
+links:
+  - name: Link from frontmatter 1
+    href: https://google.com
+  - name: Link from frontmatter 2
+    href: https://google.com
+  - name: Link from frontmatter 3
+    href: https://google.com
+template: customFrontmatter
+---
+
+<Block>
+
+This page has custom frontmatter that you can access in the body.
+
+<code>
+  <pre className="js">{JSON.stringify(props.frontmatter.links, null, 2)}</pre>
+</code>
+
+</Block>

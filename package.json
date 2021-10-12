@@ -16,5 +16,6 @@
     "test:core": "start-server-and-test develop:core http://localhost:8000 cy:open",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
-  }
+  },
+  "dependencies": {}
 }

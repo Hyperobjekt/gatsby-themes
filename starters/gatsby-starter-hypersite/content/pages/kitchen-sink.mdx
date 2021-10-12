@@ -1,0 +1,156 @@
+---
+draft: false
+name: Kitchen Sink
+path: /kitchen-sink
+meta:
+  title: Kitchen Sink
+  description: Demo of all included components
+  date: 2021-09-08
+  keywords: kitchen, sink
+  image: ./images/hello.jpg
+  isBlogPost: false
+embeddedImages:
+  - ./images/hello.jpg
+store:
+  - key: key1
+    value: value1
+---
+
+import { KitchenSinkLayout } from "layouts"
+
+<KitchenSinkLayout {...props}>
+
+<Block>
+
+# Kitchen Sink
+
+This page is a dumping ground for various features of the theme.
+
+</Block>
+
+<Block>
+
+## Props available on a page
+
+<code>
+  <pre className="json">{JSON.stringify(props, null, 2)}</pre>
+</code>
+
+</Block>
+
+<Block>
+
+## Styles
+
+### Colors
+
+<div display="flex">
+  <div bgcolor="primary.light" p={2}>
+    primary.light
+  </div>
+  <div bgcolor="primary.main" p={2}>
+    primary.main
+  </div>
+  <div bgcolor="primary.dark" p={2}>
+    primary.dark
+  </div>
+</div>
+<div display="flex" mt={2} mb={2}>
+  <div bgcolor="secondary.light" p={2}>
+    secondary.light
+  </div>
+  <div bgcolor="secondary.main" p={2}>
+    secondary.main
+  </div>
+  <div bgcolor="secondary.dark" p={2}>
+    secondary.dark
+  </div>
+</div>
+
+### Headings
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet purus nec nisl euismod ultricies. Duis lacinia vel diam efficitur rutrum. Curabitur sagittis ornare pellentesque. Suspendisse non nisl nisl. Phasellus imperdiet gravida metus, in egestas justo sodales in. In hac habitasse platea dictumst. Maecenas mollis blandit libero, non maximus arcu convallis nec. Nulla vel pharetra quam. Donec sit amet orci pharetra, semper diam ac, mattis velit. Nam ac gravida leo, nec pulvinar turpis. Ut in elementum arcu. Suspendisse semper tortor quis arcu pharetra rutrum. Donec nulla neque, imperdiet sit amet luctus vel, pulvinar sit amet libero.
+
+#### Heading 4
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet purus nec nisl euismod ultricies. Duis lacinia vel diam efficitur rutrum. Curabitur sagittis ornare pellentesque. Suspendisse non nisl nisl. Phasellus imperdiet gravida metus, in egestas justo sodales in. In hac habitasse platea dictumst. Maecenas mollis blandit libero, non maximus arcu convallis nec. Nulla vel pharetra quam. Donec sit amet orci pharetra, semper diam ac, mattis velit. Nam ac gravida leo, nec pulvinar turpis. Ut in elementum arcu. Suspendisse semper tortor quis arcu pharetra rutrum. Donec nulla neque, imperdiet sit amet luctus vel, pulvinar sit amet libero.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet purus nec nisl euismod ultricies. Duis lacinia vel diam efficitur rutrum. Curabitur sagittis ornare pellentesque. Suspendisse non nisl nisl. Phasellus imperdiet gravida metus, in egestas justo sodales in. In hac habitasse platea dictumst. Maecenas mollis blandit libero, non maximus arcu convallis nec. Nulla vel pharetra quam. Donec sit amet orci pharetra, semper diam ac, mattis velit. Nam ac gravida leo, nec pulvinar turpis. Ut in elementum arcu. Suspendisse semper tortor quis arcu pharetra rutrum. Donec nulla neque, imperdiet sit amet luctus vel, pulvinar sit amet libero.
+
+##### Heading 5
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet purus nec nisl euismod ultricies. Duis lacinia vel diam efficitur rutrum. Curabitur sagittis ornare pellentesque. Suspendisse non nisl nisl. Phasellus imperdiet gravida metus, in egestas justo sodales in. In hac habitasse platea dictumst. Maecenas mollis blandit libero, non maximus arcu convallis nec. Nulla vel pharetra quam. Donec sit amet orci pharetra, semper diam ac, mattis velit. Nam ac gravida leo, nec pulvinar turpis. Ut in elementum arcu. Suspendisse semper tortor quis arcu pharetra rutrum. Donec nulla neque, imperdiet sit amet luctus vel, pulvinar sit amet libero.
+
+###### Heading 6
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet purus nec nisl euismod ultricies. Duis lacinia vel diam efficitur rutrum. Curabitur sagittis ornare pellentesque. Suspendisse non nisl nisl. Phasellus imperdiet gravida metus, in egestas justo sodales in. In hac habitasse platea dictumst. Maecenas mollis blandit libero, non maximus arcu convallis nec. Nulla vel pharetra quam. Donec sit amet orci pharetra, semper diam ac, mattis velit. Nam ac gravida leo, nec pulvinar turpis. Ut in elementum arcu. Suspendisse semper tortor quis arcu pharetra rutrum. Donec nulla neque, imperdiet sit amet luctus vel, pulvinar sit amet libero.
+
+### Paragraphs
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet purus nec nisl euismod ultricies. Duis lacinia vel diam efficitur rutrum. Curabitur sagittis ornare pellentesque. Suspendisse non nisl nisl. Phasellus imperdiet gravida metus, in egestas justo sodales in. In hac habitasse platea dictumst. Maecenas mollis blandit libero, non maximus arcu convallis nec. Nulla vel pharetra quam. Donec sit amet orci pharetra, semper diam ac, mattis velit. Nam ac gravida leo, nec pulvinar turpis. Ut in elementum arcu. Suspendisse semper tortor quis arcu pharetra rutrum. Donec nulla neque, imperdiet sit amet luctus vel, pulvinar sit amet libero.
+
+<p variant="body2">
+  Suspendisse potenti. Integer quam erat, commodo pretium leo a, fermentum
+  tincidunt est. Etiam tincidunt rhoncus nulla, et pellentesque dui. Mauris
+  rhoncus risus tellus, nec cursus ipsum consectetur sed. Lorem ipsum dolor sit
+  amet, consectetur adipiscing elit. Sed tempus scelerisque nulla, eu sagittis
+  urna facilisis quis. Phasellus vel iaculis turpis.
+</p>
+
+<p variant="caption">
+  Aenean enim magna, iaculis vel risus id, scelerisque imperdiet lorem. Nullam
+  accumsan malesuada dui, sit amet faucibus mauris tempor vitae. Sed sem nibh,
+  condimentum non ultricies blandit, posuere eleifend arcu. Proin sapien mauris,
+  vehicula ut sagittis in, tincidunt ut leo. Ut volutpat justo vel porta
+  dapibus. Sed dapibus metus vitae turpis dictum sollicitudin. Nunc fermentum
+  pharetra elementum. Aenean in fringilla risus. Vivamus bibendum ex arcu, et
+  tincidunt nibh interdum ut. Suspendisse vel ullamcorper mauris. Phasellus
+  magna nulla, luctus at venenatis sed, semper viverra libero. Nullam vel mauris
+  mollis, feugiat lorem fermentum, dignissim mi. Etiam posuere, sem vel
+  convallis laoreet, turpis tellus suscipit ante, sed consectetur ante libero
+  elementum lectus. Vestibulum eget eros justo. Duis vel mi vulputate, pretium
+  dolor eget, efficitur neque.
+</p>
+
+### Bullet List
+
+- bullet list
+- testing
+
+### Ordered List
+
+1. number list
+2. testing
+
+</Block>
+
+<Block bgcolor="grey.100">
+
+### Grid
+
+<Grid container spacing={3}>
+  <Grid xs={12} sm={6} md={3} item>
+    <Box p={3} bgcolor="grey.200">
+      Grid (sm=6, md=3)
+    </Box>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} item>
+    <Box p={3} bgcolor="grey.200">
+      Grid (sm=6, md=3)
+    </Box>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} item>
+    <Box p={3} bgcolor="grey.200">
+      Grid (sm=6, md=3)
+    </Box>
+  </Grid>
+  <Grid xs={12} sm={6} md={3} item>
+    <Box p={3} bgcolor="grey.200">
+      Grid (sm=6, md=3)
+    </Box>
+  </Grid>
+</Grid>
+
+</Block>
+
+</KitchenSinkLayout>

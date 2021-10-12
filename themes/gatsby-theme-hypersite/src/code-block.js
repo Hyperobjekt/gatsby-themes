@@ -17,12 +17,13 @@ const styles = (theme) => ({
 })
 
 const CodeBlock = ({ classes, theme = defaultTheme, children, ...props }) => {
-  const className = children.props.className || ""
-  const matches = className.match(/language-(?<lang>.*)/)
+  const className = children?.props?.className || ""
+  if (!className) return <pre {...props}>{children}</pre>
+  const matches = className?.match(/language-(?<lang>.*)/)
   return (
     <Highlight
       {...defaultProps}
-      code={children.props.children.trim()}
+      code={children?.props?.children?.trim()}
       language={
         matches && matches.groups && matches.groups.lang
           ? matches.groups.lang
