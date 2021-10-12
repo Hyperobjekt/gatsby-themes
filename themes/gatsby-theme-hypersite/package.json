@@ -40,5 +40,6 @@
     "not ie 11",
     "not chrome < 51",
     "not safari < 10"
-  ]
+  ],
+  "gitHead": "4d772a5df29ce5c2fc978cf714f63c82705c392c"
 }

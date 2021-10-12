@@ -1,6 +1,6 @@
-import { createMuiTheme } from "@material-ui/core"
+import { createTheme } from "@material-ui/core/styles"
 
-let theme = createMuiTheme({
+let theme = createTheme({
   palette: {
     primary: {
       main: "#333",

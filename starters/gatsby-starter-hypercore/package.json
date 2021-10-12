@@ -33,5 +33,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Hyperobjekt/gatsby-starter-hyperobjekt"
-  }
+  },
+  "gitHead": "4d772a5df29ce5c2fc978cf714f63c82705c392c"
 }
