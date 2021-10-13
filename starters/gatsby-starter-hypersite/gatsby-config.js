@@ -15,12 +15,12 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: "gatsby-plugin-netlify-cms",
-    //   options: {
-    //     manualInit: true,
-    //     modulePath: `${__dirname}/src/cms/cms.js`,
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-netlify-cms",
+      options: {
+        manualInit: true,
+        modulePath: `./src/cms/cms.js`,
+      },
+    },
   ],
 }

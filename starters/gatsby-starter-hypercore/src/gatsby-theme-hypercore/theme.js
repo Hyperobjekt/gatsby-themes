@@ -1,8 +1,8 @@
 import purple from "@material-ui/core/colors/purple"
 import pink from "@material-ui/core/colors/pink"
-import { createMuiTheme } from "@material-ui/core"
+import { createTheme } from "@material-ui/core/styles"
 
-let theme = createMuiTheme({
+let theme = createTheme({
   palette: {
     primary: {
       main: purple[500],

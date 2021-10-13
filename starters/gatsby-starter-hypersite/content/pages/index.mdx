@@ -13,3 +13,37 @@ meta:
 ## Hypersite theme
 
 </Hero>
+
+<Block>
+
+## Quick Start
+
+1. Edit `/config/metadata.json` to configure the site name, default metadata, and navigation.
+2. Create site pages in `/content/pages`. Each `.mdx` file will create a new page. See [Page Frontmatter](#page-frontmatter) for page level configuration.
+3. Edit the site colors and component styles in `/src/gatsby-theme-hypercore/theme.js`.
+4. Set the website repository for the CMS config in `/src/cms/cms.js`
+
+</Block>
+
+<Block bgcolor="background.paper">
+
+## Page Frontmatter
+
+| Frontmatter Property | Value   | Description                                                                                                                                                      |
+| -------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`               | String  | The name displayed for the page in the CMS                                                                                                                       |
+| `draft`              | Boolean | (optional) When `draft` is true, the page will not be created in the build                                                                                       |
+| `path`               | String  | (optional) When `path` is set, the page will be created at the provided URL (e.g. `/about`). Otherwise, the page slug is created based on the title.             |
+| `meta`               | Object  | This object contains all of the metadata for the page                                                                                                            |
+| `meta.title`         | String  | The browser title for the page, also used for page name in metadata                                                                                              |
+| `meta.date`          | String  | Publish date for the page in ISO8601 format (yyyy-mm-dd). Pages with future publish dates will not be created                                                    |
+| `meta.description`   | String  | Meta description for the page (SEO)                                                                                                                              |
+| `meta.image`         | String  | URL to an image to use for social sharing of the page. Automatically resized and cropped to 1230x600                                                             |
+| `meta.keywords`      | String  | meta tag keywords for the page                                                                                                                                   |
+| `meta.isBlogPost`    | Boolean | sets blog post metadata use `true` if the page is a blog post                                                                                                    |
+| `meta.authors`       | Array   | array of authors for the page                                                                                                                                    |
+| `template`           | String  | (optional) used to set an optional template for the page with a custom graphQL query                                                                             |
+| `store`              | Array   | (optional) an array of key / value pairs to use within the page                                                                                                  |
+| `embeddedImages`     | Array   | a list of relative image paths to use on the page. The images will automatically be resized to page width and available in the `props.localImages` for the page. |
+
+</Block>

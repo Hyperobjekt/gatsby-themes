@@ -1,6 +1,6 @@
-import { createMuiTheme } from "@material-ui/core"
+import { createTheme } from "@material-ui/core/styles"
 
-let theme = createMuiTheme({
+let theme = createTheme({
   palette: {
     primary: {
       main: "#6a00ff",
@@ -15,6 +15,9 @@ let theme = createMuiTheme({
         // make wrappers fill viewport
         "html, body, #___gatsby,#gatsby-focus-wrapper": {
           height: "100%",
+        },
+        html: {
+          scrollBehavior: "smooth",
         },
         code: {
           background: "rgb(45, 42, 85)",

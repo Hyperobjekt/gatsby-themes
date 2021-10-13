@@ -9,10 +9,65 @@ meta:
 
 ## Customize the site layout
 
-How to create pages that have a more advanced layout than the defaults.
+- [Demo](/recipes/kitchen-sink)
+
+This example shows to create pages that have a more advanced layout than the default:
+
+1. Create a layout wrapper component that contains a custom layout (e.g. a sidebar). See `/src/layouts/kitchen-sink.js`.
+2. Import the layout into the page you want to have the custom layout. See `/content/pages/recipes/kitchen-sink.mdx`.
+
+```jsx
+import { KitchenSinkLayout } from "layouts"
+```
+
+3. Wrap the page content in the layout component and pass any required props to the layout. The rendered MDX content will be available to the layout as the `children` prop.
+
+```jsx
+<KitchenSinkLayout {...props}># Kitchen Sink SitePage</KitchenSinkLayout>
+```
 
 ## Customize the frontmatter for a page
 
-How to include frontmatter that has extra entries than what is provided by default.
+This example shows how to include frontmatter that has extra values than what is provided by default.
+
+- [Demo](/recipes/custom-frontmatter)
+
+1. Add the desired custom frontmatter to you page. (see the `links` frontmatter in `/content/pages/recipes/custom-frontmatter.mdx`)
+
+```yml
+links:
+  - name: Link from frontmatter 1
+    href: https://google.com
+  - name: Link from frontmatter 2
+    href: https://google.com
+  - name: Link from frontmatter 3
+    href: https://google.com
+```
+
+2. Create a custom template that queries for the custom frontmatter. (see `/src/templates/customFrontmatter.js`)
+3. Pass the template into the `gatsby-theme-hypersite` options in `gatsby-config.js`
+
+_gatsby-config.js_
+
+```js
+{
+  // ...
+  templates: {
+    customFrontmatter: path.resolve(
+      "./src/templates/customFrontmatter.js"
+    ),
+  },
+}
+```
+
+4. Add the template key used in `gatsby-config.js` as the template for the page:
+
+_/content/pages/recipes/custom-frontmatter.mdx_
+
+```yml
+template: customFrontmatter
+```
+
+The page will now have access to the custom frontmatter via props.
 
 </Block>

@@ -1,5 +1,6 @@
 ---
 draft: false
+name: Getting Started
 path: /guide
 embeddedImages:
   - ./images/guide-social.jpg
@@ -251,8 +252,24 @@ Use [component shadowing](https://www.gatsbyjs.com/docs/how-to/plugins-and-theme
 
 ### Content Management
 
-[Netlify CMS](https://www.netlifycms.org/) is used for content management, common modules and documentation are in the works.
+[Netlify CMS](https://www.netlifycms.org/) is used for content management. The CMS uses manual initialization so configuration can be specified using javascript in `/src/cms/cms.js`.
 
-For now, follow [DRY Netlify CMS config with manual initialization](https://mrkaluzny.com/blog/dry-netlify-cms-config-with-manual-initialization/) for a guide on how to configure the CMS for use with gatsby
+Point the CMS to the website repo in `/src/cms/cms.js`.
+
+To run the CMS locally, first start the content proxy with:
+
+```sh
+npx netlify-cms-proxy-server
+```
+
+Then run the local gatsby instance and access the CMS at:
+
+http://localhost:8000/admin
+
+#### CMS Resources
+
+- [Netlify CMS Widget Reference](https://www.netlifycms.org/docs/widgets/)
+- [Netlify CMS collection types](https://www.netlifycms.org/docs/collection-types/)
+- [DRY Netlify CMS config with manual initialization](https://mrkaluzny.com/blog/dry-netlify-cms-config-with-manual-initialization/)
 
 </Block>
